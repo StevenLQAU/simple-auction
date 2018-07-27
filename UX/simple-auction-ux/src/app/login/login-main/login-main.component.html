@@ -1,0 +1,19 @@
+
+<div *ngIf="!isLoggedIn()">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <label>
+        User Name:
+        <input type="text" formControlName="username">
+      </label>
+    
+      <label>
+        Password:
+        <input type="text" formControlName="password">
+      </label>
+      <button type="submit" [disabled]="!loginForm.valid">Submit</button>
+</form>
+</div>
+<div *ngIf="isLoggedIn()">
+    Hello! {{getUsername()}}
+    <button (click)="logout()">Logout</button>
+</div>

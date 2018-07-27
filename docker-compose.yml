@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  auction.user.api:
+    image: ${DOCKER_REGISTRY}auctionuserapi
+    build:
+      context: .
+      dockerfile: Auction.User.Api/Dockerfile
+
+
+  auction.product.api:
+    image: ${DOCKER_REGISTRY}auctionproductapi
+    build:
+      context: .
+      dockerfile: Auction.Product.Api/Dockerfile
+
+
+  auction.bid.api:
+    image: ${DOCKER_REGISTRY}auctionbidapi
+    build:
+      context: .
+      dockerfile: Auction.Bid.Api/Dockerfile
+
+  auction.api:
+    image: ${DOCKER_REGISTRY}auctionapi
+    build:
+      context: .
+      dockerfile: Auction.Api/Dockerfile
+

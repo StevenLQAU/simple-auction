@@ -1,0 +1,12 @@
+
+<div class="container" *ngFor="let product of products">
+  <app-product [productName]="product.product.name" 
+  [productId]="product.product.id" 
+  [startTime]="product.product.startTime" 
+  [closeTime]="product.product.closeTime" 
+  [status]="product.product.status" 
+  [highestBid]="product.highestBid"
+  (doBid)="doBid($event)"
+  ></app-product>
+  <br />
+</div>
