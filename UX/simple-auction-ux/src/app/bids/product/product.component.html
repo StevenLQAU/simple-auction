@@ -1,9 +1,9 @@
 <div class="card">
   <div class="card-body">
       <div class="card-title">{{productName}}</div>
-      <div class="card-text">{{startTime | date:"dd/MM/yyyy hh:mm:ss"}}</div>
-      <div class="card-text">{{closeTime | date:"dd/MM/yyyy hh:mm:ss"}}</div>
-      <div class="card-text">{{getStatus()}}</div>
+      <div class="card-text">Start Time: {{startTime | date:"dd/MM/yyyy hh:mm:ss"}}</div>
+      <div class="card-text">End Time{{closeTime | date:"dd/MM/yyyy hh:mm:ss"}}</div>
+      <div class="card-text">Status: {{getStatus()}}</div>
       <div class="card-text">{{getPrice() | currency}}</div>    
       <div *ngIf="canBid()">
         <input type="number" [(ngModel)]="newPrice"/>

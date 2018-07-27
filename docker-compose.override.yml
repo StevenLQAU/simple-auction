@@ -49,7 +49,7 @@ services:
       - ASPNETCORE_URLS=https://+:443;http://+:80
       - ASPNETCORE_HTTPS_PORT=44391
     ports:
-      - "10768:10768"
+      - "10768:80"
       - "44391:443"
     volumes:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
@@ -64,5 +64,5 @@ services:
     volumes:
       - ./data/db:/data/db
     ports:
-      - "27017:27017"
+      - "27027:27017"
     command: mongod --smallfiles --logpath=/dev/null # --quiet

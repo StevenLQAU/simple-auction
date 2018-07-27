@@ -28,10 +28,17 @@ export class ProductComponent implements OnInit {
 
   getStatus(): string {
     const closeMoment = moment(this.closeTime);
+    const startMoment = moment(this.startTime);
 
+    if (moment().isBefore(closeMoment) && moment().isAfter(startMoment)) {
+      return 'IN BID';
+    }
+    
     if (moment().isAfter(closeMoment)) {
       return 'END';
     }
+
+    
 
     switch (this.status) {
       case ProductStatus.End:
@@ -66,8 +73,8 @@ export class ProductComponent implements OnInit {
 
   canBid(): boolean {
     return this.loginService.isLoggedIn() &&
-    ((this.status === ProductStatus.InBid) ||
-     (moment().isBefore(moment(this.closeTime)) && moment().isAfter(moment(this.startTime))));
+      ((this.status === ProductStatus.InBid) ||
+        (moment().isBefore(moment(this.closeTime)) && moment().isAfter(moment(this.startTime))));
   }
 
 
